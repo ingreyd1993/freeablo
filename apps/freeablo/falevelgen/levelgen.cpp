@@ -813,7 +813,9 @@ namespace FALevelGen
                 m.xPos = randomInRange(1, level.width()-1);
                 m.yPos = randomInRange(1, level.height()-1);
             }
-            while(!level[m.xPos][m.yPos].passable());
+            while(!level[m.xPos][m.yPos].passable() &&
+                 ((m.xPos == (level.upStairsPos()).first) &&
+                   (m.yPos == (level.upStairsPos()).second)));
 
             m.name = possibleMonsters[randomInRange(0, possibleMonsters.size()-1)]->monsterName;
 
